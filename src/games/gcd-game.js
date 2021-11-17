@@ -13,7 +13,6 @@ export default () => {
       const secondInt = parseInt(secondChunk, 10);
 
       const findGcd = (a, b) => {
-        console.log(a, b);
         if (a === 0 || b === 0) return a + b;
         if (a > b) return findGcd(a % b, b);
         return findGcd(b % a, a);
