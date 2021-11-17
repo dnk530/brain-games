@@ -18,7 +18,6 @@ export default () => {
     };
 
     const question = generateExpression();
-    console.log(question);
 
     const solveExpression = (exp) => {
       const [firstOperand, operator, secondOperand] = exp.split(' ');
@@ -35,7 +34,6 @@ export default () => {
     };
 
     const answer = solveExpression(question).toString();
-    console.log(answer);
     return [question, answer];
   };
 
