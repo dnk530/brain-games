@@ -1,15 +1,16 @@
 import readlineSync from 'readline-sync';
+import cli from './cli.js';
 
-export default (rules, qaGenerator) => {
-  console.log('Welcome to the Brain Games!');
-  const userName = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${userName}!`);
+export default (rules, generateRound) => {
+  const userName = cli();
+
   console.log(rules);
 
-  let count = 0;
+  let roundsPlayed = 0;
+  const NUMBER_OF_ROUNDS = 3;
 
-  while (count < 3) {
-    const [question, answer] = qaGenerator();
+  while (roundsPlayed < NUMBER_OF_ROUNDS) {
+    const [question, answer] = generateRound();
 
     console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
@@ -19,7 +20,7 @@ export default (rules, qaGenerator) => {
     }
 
     console.log('Correct!');
-    count += 1;
+    roundsPlayed += 1;
   }
   console.log(`Congratulations, ${userName}!`);
 };

@@ -3,13 +3,9 @@ import gameEngine from '../index.js';
 export default () => {
   const rules = 'What is the result of the expression?';
 
-  const qaGenerator = () => {
-    const generateExpression = () => {
-      const getRandomInt = (min = 0, max = 99) => {
-        const minR = Math.ceil(min);
-        const maxR = Math.floor(max);
-        return Math.floor(Math.random() * (maxR - minR) + minR);
-      };
+  const generateRound = () => {
+    const generateQuestion = () => {
+      const getRandomInt = (min = 0, max = 99) => Math.floor(Math.random() * (max - min) + min);
       const getRandomOp = () => {
         const operators = ['+', '-', '*'];
         return operators[Math.floor(Math.random() * operators.length)];
@@ -17,25 +13,28 @@ export default () => {
       return `${getRandomInt()} ${getRandomOp()} ${getRandomInt()}`;
     };
 
-    const question = generateExpression();
+    const question = generateQuestion();
 
-    const solveExpression = (exp) => {
-      const [firstOperand, operator, secondOperand] = exp.split(' ');
-      switch (operator) {
+    const getAnswer = (exp) => {
+      const [firstChunk, secondChunk, thirdChunk] = exp.split(' ');
+      const firstOperand = parseInt(firstChunk, 10);
+      const secondOperand = parseInt(thirdChunk, 10);
+
+      switch (secondChunk) {
         case '+':
-          return (parseInt(firstOperand, 10) + parseInt(secondOperand, 10));
+          return firstOperand + secondOperand;
         case '-':
-          return (parseInt(firstOperand, 10) - parseInt(secondOperand, 10));
+          return firstOperand - secondOperand;
         case '*':
-          return (parseInt(firstOperand, 10) * parseInt(secondOperand, 10));
+          return firstOperand * secondOperand;
         default:
           return 'unknown operator';
       }
     };
 
-    const answer = solveExpression(question).toString();
+    const answer = getAnswer(question).toString();
     return [question, answer];
   };
 
-  gameEngine(rules, qaGenerator);
+  gameEngine(rules, generateRound);
 };
