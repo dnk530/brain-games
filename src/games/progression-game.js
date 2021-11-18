@@ -1,10 +1,10 @@
 import gameEngine from '../index.js';
+import getRandomInt from './common/random-int.js';
 
 export default () => {
   const rules = 'What number is missing in the progression?';
 
   const generateRound = () => {
-    const getRandomInt = (min = 0, max = 99) => Math.floor(Math.random() * (max - min) + min);
     const generateProgression = () => {
       const start = getRandomInt(0, 10);
       const difference = getRandomInt(1, 9);

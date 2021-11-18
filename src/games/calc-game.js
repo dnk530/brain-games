@@ -1,11 +1,11 @@
 import gameEngine from '../index.js';
+import getRandomInt from './random-int.js';
 
 export default () => {
   const rules = 'What is the result of the expression?';
 
   const generateRound = () => {
     const generateQuestion = () => {
-      const getRandomInt = (min = 0, max = 99) => Math.floor(Math.random() * (max - min) + min);
       const getRandomOp = () => {
         const operators = ['+', '-', '*'];
         return operators[Math.floor(Math.random() * operators.length)];

@@ -1,10 +1,10 @@
 import gameEngine from '../index.js';
+import getRandomInt from './random-int.js';
 
 export default () => {
   const rules = 'Find the greatest common divisor of given numbers.';
 
   const generateRound = () => {
-    const getRandomInt = (min = 0, max = 99) => Math.floor(Math.random() * (max - min) + min);
     const question = `${getRandomInt()} ${getRandomInt()}`;
 
     const getAnswer = (str) => {
