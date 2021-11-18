@@ -10,23 +10,21 @@ export default () => {
       const difference = getRandomInt(1, 9);
       const LENGTH = 10;
 
-      const progression = [start];
-      for (let i = 1; i < LENGTH; i += 1) {
-        progression.push(progression[i - 1] + difference);
-      }
+      const progression = new Array(LENGTH)
+        .fill(start)
+        .reduce((acc, el, index) => (
+          (index === 0) ? [el] : [...acc, acc[acc.length - 1] + difference]), []);
       return progression;
     };
 
     const progressionArray = generateProgression();
     const selectedIndex = getRandomInt(0, 9);
-    const answer = progressionArray[selectedIndex].toString();
 
-    const generateQuestion = (index) => {
-      const copyProgression = [...progressionArray];
-      copyProgression[index] = '..';
-      return copyProgression.join(' ');
-    };
-    const question = generateQuestion(selectedIndex);
+    const question = progressionArray
+      .map((el, ind) => (ind === selectedIndex ? '..' : el))
+      .join(' ');
+
+    const answer = progressionArray[selectedIndex].toString();
 
     return [question, answer];
   };
