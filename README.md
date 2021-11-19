@@ -33,7 +33,7 @@ brain-calc
 [![asciicast](https://asciinema.org/a/NVCsyU0mSG81gg2hCY0WC1rgh.svg)](https://asciinema.org/a/NVCsyU0mSG81gg2hCY0WC1rgh)
 
 ## Brain GCD
-Calculate greatest common denominator of two numbers
+Calculate greatest common divisor of two numbers
 
 ```sh
 brain-gcd
