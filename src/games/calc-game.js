@@ -5,22 +5,19 @@ export default () => {
   const rules = 'What is the result of the expression?';
 
   const generateRound = () => {
-    const generateQuestion = () => {
-      const getRandomOp = () => {
-        const operators = ['+', '-', '*'];
-        return operators[Math.floor(Math.random() * operators.length)];
-      };
-      return `${getRandomInt()} ${getRandomOp()} ${getRandomInt()}`;
+    const firstOperand = getRandomInt();
+    const secondOperand = getRandomInt();
+
+    const getRandomOp = () => {
+      const operators = ['+', '-', '*'];
+      return operators[Math.floor(Math.random() * operators.length)];
     };
+    const operator = getRandomOp();
 
-    const question = generateQuestion();
+    const question = `${firstOperand} ${operator} ${secondOperand}`;
 
-    const getAnswer = (exp) => {
-      const [firstChunk, secondChunk, thirdChunk] = exp.split(' ');
-      const firstOperand = parseInt(firstChunk, 10);
-      const secondOperand = parseInt(thirdChunk, 10);
-
-      switch (secondChunk) {
+    const getAnswer = () => {
+      switch (operator) {
         case '+':
           return firstOperand + secondOperand;
         case '-':
@@ -32,7 +29,7 @@ export default () => {
       }
     };
 
-    const answer = getAnswer(question).toString();
+    const answer = getAnswer().toString();
     return [question, answer];
   };
 

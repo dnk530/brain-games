@@ -10,10 +10,10 @@ export default () => {
 
     const question = `${firstInt} ${secondInt}`;
 
-    const findGcd = (a, b) => {
-      if (a === 0 || b === 0) return a + b;
-      if (a > b) return findGcd(a % b, b);
-      return findGcd(b % a, a);
+    const findGcd = (num1, num2) => {
+      if (num1 === 0 || num2 === 0) return num1 + num2;
+      if (num1 > num2) return findGcd(num1 % num2, num2);
+      return findGcd(num2 % num1, num1);
     };
 
     const answer = findGcd(firstInt, secondInt).toString();
