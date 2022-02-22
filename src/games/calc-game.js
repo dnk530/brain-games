@@ -2,17 +2,17 @@ import gameEngine from '../index.js';
 import getRandomInt from './common/random-int.js';
 
 export default () => {
-  const rules = 'What is the result of the expression?';
+  const rulesDescription = 'What is the result of the expression?';
 
   const generateRound = () => {
     const firstOperand = getRandomInt();
     const secondOperand = getRandomInt();
 
-    const getRandomOp = () => {
+    const getRandomOperator = () => {
       const operators = ['+', '-', '*'];
       return operators[Math.floor(Math.random() * operators.length)];
     };
-    const operator = getRandomOp();
+    const operator = getRandomOperator();
 
     const question = `${firstOperand} ${operator} ${secondOperand}`;
 
@@ -33,5 +33,5 @@ export default () => {
     return [question, answer];
   };
 
-  gameEngine(rules, generateRound);
+  gameEngine(rulesDescription, generateRound);
 };

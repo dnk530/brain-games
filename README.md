@@ -4,7 +4,7 @@
 [![CI](https://github.com/dnk530/frontend-project-lvl1/actions/workflows/main.yml/badge.svg)](https://github.com/dnk530/frontend-project-lvl1/actions/workflows/main.yml)
 
 # Brain Games
-The package contains 5 console games that check user input with correct answer. Requires `readline-sync` v1.4.10 or higher.
+The package contains 5 console games that check user input with correct answer. Requires NodeJS 14+.
 
 ## Setup
 

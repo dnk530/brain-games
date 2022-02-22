@@ -2,7 +2,7 @@ import gameEngine from '../index.js';
 import getRandomInt from './common/random-int.js';
 
 export default () => {
-  const rules = 'Find the greatest common divisor of given numbers.';
+  const rulesDescription = 'Find the greatest common divisor of given numbers.';
 
   const generateRound = () => {
     const firstInt = getRandomInt();
@@ -11,8 +11,8 @@ export default () => {
     const question = `${firstInt} ${secondInt}`;
 
     const findGcd = (num1, num2) => {
-      if (num1 === 0 || num2 === 0) return num1 + num2;
-      if (num1 > num2) return findGcd(num1 % num2, num2);
+      if (num1 === 0 || num2 === 0) { return num1 + num2; }
+      if (num1 > num2) { return findGcd(num1 % num2, num2); }
       return findGcd(num2 % num1, num1);
     };
 
@@ -21,5 +21,5 @@ export default () => {
     return [question, answer];
   };
 
-  gameEngine(rules, generateRound);
+  gameEngine(rulesDescription, generateRound);
 };
