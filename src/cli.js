@@ -1,4 +1,8 @@
 import readlineSync from 'readline-sync';
 
-export const request = (prompt) => readlineSync.question(prompt);
-export const print = (data) => console.log(data);
+export default () => {
+  console.log('Welcome to the Brain Games!');
+  const userName = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${userName}!`);
+  return userName;
+};
