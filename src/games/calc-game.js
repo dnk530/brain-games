@@ -1,5 +1,5 @@
 import gameEngine from '../index.js';
-import getRandomInt from './common/random-int.js';
+import getRandomInt from '../common/random-int.js';
 
 export default () => {
   const rulesDescription = 'What is the result of the expression?';
