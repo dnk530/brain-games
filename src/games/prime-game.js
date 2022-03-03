@@ -1,12 +1,13 @@
 import gameEngine from '../index.js';
 import getRandomInt from '../common/random-int.js';
 
+const randomNumberLimit = 3500;
+
 export default () => {
   const rulesDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
   const generateRound = () => {
-    const UPPER_LIMIT = 3500;
-    const question = getRandomInt(1, UPPER_LIMIT);
+    const question = getRandomInt(1, randomNumberLimit);
 
     const isPrime = (num) => {
       const limit = Math.floor(Math.sqrt(num));
