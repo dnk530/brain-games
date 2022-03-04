@@ -15,6 +15,7 @@ export default () => {
   const generateRound = () => {
     const question = getRandomInt(1, 3500);
     const answer = isPrime(question) ? 'yes' : 'no';
+
     return [question, answer];
   };
 
