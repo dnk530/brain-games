@@ -1,30 +1,27 @@
-import gameEngine from '../index.js';
+import runEngine from '../index.js';
 import getRandomInt from '../common/random-int.js';
 
-const placeholder = '..';
-const progressionSize = 10;
-const firstElementRange = [0, 10];
-const incrementRange = [1, 9];
+const rulesDescription = 'What number is missing in the progression?';
+
+const generateProgression = (firstElement, increment, size) => {
+  const progression = [firstElement];
+  for (let i = 1; i < size; i += 1) {
+    progression.push(firstElement + increment * i);
+  }
+  return progression;
+};
 
 export default () => {
-  const rulesDescription = 'What number is missing in the progression?';
-
   const generateRound = () => {
-    const generateProgression = () => {
-      const firstElement = getRandomInt(...firstElementRange);
-      const increment = getRandomInt(...incrementRange);
-      const progression = new Array(progressionSize)
-        .fill(firstElement)
-        .reduce((acc, el, index) => (
-          (index === 0) ? [el] : [...acc, acc[acc.length - 1] + increment]), []);
-      return progression;
-    };
+    const progressionSize = getRandomInt(5, 10);
+    const firstElement = getRandomInt(0, 25);
+    const increment = getRandomInt(1, 9);
 
-    const progressionNumbers = generateProgression();
+    const progressionNumbers = generateProgression(firstElement, increment, progressionSize);
     const selectedIndex = getRandomInt(0, progressionSize - 1);
 
     const question = progressionNumbers
-      .map((el, index) => (index === selectedIndex ? placeholder : el))
+      .map((el, index) => (index === selectedIndex ? '..' : el))
       .join(' ');
 
     const answer = progressionNumbers[selectedIndex].toString();
@@ -32,5 +29,5 @@ export default () => {
     return [question, answer];
   };
 
-  gameEngine(rulesDescription, generateRound);
+  runEngine(rulesDescription, generateRound);
 };
