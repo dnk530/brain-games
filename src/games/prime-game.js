@@ -11,13 +11,11 @@ const isPrime = (num) => {
   return num > 1;
 };
 
-export default () => {
-  const generateRound = () => {
-    const question = getRandomInt(1, 3500);
-    const answer = isPrime(question) ? 'yes' : 'no';
+const generateRound = () => {
+  const question = getRandomInt(1, 3500);
+  const answer = isPrime(question) ? 'yes' : 'no';
 
-    return [question, answer];
-  };
-
-  runEngine(rulesDescription, generateRound);
+  return [question, answer];
 };
+
+export default () => runEngine(rulesDescription, generateRound);

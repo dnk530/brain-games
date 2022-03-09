@@ -17,17 +17,15 @@ const calculate = (firstOperand, secondOperand, operator) => {
   }
 };
 
-export default () => {
-  const generateRound = () => {
-    const firstOperand = getRandomInt();
-    const secondOperand = getRandomInt();
-    const randomOperator = operators[getRandomInt(0, operators.length - 1)];
+const generateRound = () => {
+  const firstOperand = getRandomInt();
+  const secondOperand = getRandomInt();
+  const randomOperator = operators[getRandomInt(0, operators.length - 1)];
 
-    const question = `${firstOperand} ${randomOperator} ${secondOperand}`;
-    const answer = calculate(firstOperand, secondOperand, randomOperator).toString();
+  const question = `${firstOperand} ${randomOperator} ${secondOperand}`;
+  const answer = calculate(firstOperand, secondOperand, randomOperator).toString();
 
-    return [question, answer];
-  };
-
-  runEngine(rulesDescription, generateRound);
+  return [question, answer];
 };
+
+export default () => runEngine(rulesDescription, generateRound);

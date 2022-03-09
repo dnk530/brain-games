@@ -9,15 +9,13 @@ const findGcd = (num1, num2) => {
   return findGcd(num2 % num1, num1);
 };
 
-export default () => {
-  const generateRound = () => {
-    const firstInt = getRandomInt();
-    const secondInt = getRandomInt();
-    const question = `${firstInt} ${secondInt}`;
-    const answer = findGcd(firstInt, secondInt).toString();
+const generateRound = () => {
+  const firstInt = getRandomInt();
+  const secondInt = getRandomInt();
+  const question = `${firstInt} ${secondInt}`;
+  const answer = String(findGcd(firstInt, secondInt));
 
-    return [question, answer];
-  };
-
-  runEngine(rulesDescription, generateRound);
+  return [question, answer];
 };
+
+export default () => runEngine(rulesDescription, generateRound);

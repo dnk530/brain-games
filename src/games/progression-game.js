@@ -11,23 +11,21 @@ const generateProgression = (firstElement, increment, size) => {
   return progression;
 };
 
-export default () => {
-  const generateRound = () => {
-    const progressionSize = getRandomInt(5, 10);
-    const firstElement = getRandomInt(0, 25);
-    const increment = getRandomInt(1, 9);
+const generateRound = () => {
+  const progressionSize = getRandomInt(5, 10);
+  const firstElement = getRandomInt(0, 25);
+  const increment = getRandomInt(1, 9);
 
-    const progressionNumbers = generateProgression(firstElement, increment, progressionSize);
-    const selectedIndex = getRandomInt(0, progressionSize - 1);
+  const progressionNumbers = generateProgression(firstElement, increment, progressionSize);
+  const selectedIndex = getRandomInt(0, progressionSize - 1);
 
-    const question = progressionNumbers
-      .map((el, index) => (index === selectedIndex ? '..' : el))
-      .join(' ');
+  const question = progressionNumbers
+    .map((el, index) => (index === selectedIndex ? '..' : el))
+    .join(' ');
 
-    const answer = progressionNumbers[selectedIndex].toString();
+  const answer = String(progressionNumbers[selectedIndex]);
 
-    return [question, answer];
-  };
-
-  runEngine(rulesDescription, generateRound);
+  return [question, answer];
 };
+
+export default () => runEngine(rulesDescription, generateRound);
