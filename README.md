@@ -5,6 +5,11 @@
 
 # Brain Games
 The package contains 5 console games that check user input with correct answer. Requires NodeJS 14+.
+  - [even](#brain-even): answer if number is even or not
+  - [calc](#brain-calc): calculate simple arithmetic expression
+  - [gcd](#brain-gcd): find greatest common divisor of two numbers
+  - [progression](#brain-progression): fill in missing element of mathematical progression
+  - [prime](#brain-prime): answer if number is prime or not
 
 ## Setup
 
